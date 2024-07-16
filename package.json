@@ -1,5 +1,5 @@
 {
-  "name": "quickproxy",
+  "name": "tapreq",
   "version": "1.0.0",
   "main": "index.js",
   "description": "A simple HTTP proxy that logs requests and responses",
