@@ -1,4 +1,4 @@
-# quickproxy
+# tapreq
 
 A simple, fast HTTP proxy that logs requests and responses. Perfect for debugging and monitoring HTTP traffic.
 
@@ -12,10 +12,10 @@ A simple, fast HTTP proxy that logs requests and responses. Perfect for debuggin
 
 ## Installation
 
-You can use `quickproxy` without installation via `npx`, or install it globally:
+You can use `tapreq` without installation via `npx`, or install it globally:
 
 ```bash
-npm install -g quickproxy
+npm install -g tapreq
 ```
 
 ## Usage
@@ -23,13 +23,13 @@ npm install -g quickproxy
 ### Using npx (no installation required):
 
 ```bash
-npx quickproxy <target-url> [--port <port>] [--log-file <file>]
+npx tapreq <target-url> [--port <port>] [--log-file <file>]
 ```
 
 ### If installed globally:
 
 ```bash
-quickproxy <target-url> [--port <port>] [--log-file <file>]
+tapreq <target-url> [--port <port>] [--log-file <file>]
 ```
 
 ### Arguments:
@@ -43,13 +43,13 @@ quickproxy <target-url> [--port <port>] [--log-file <file>]
 Proxy requests to http://localhost:3000 and log to console:
 
 ```bash
-npx quickproxy http://localhost:3000
+npx tapreq http://localhost:3000
 ```
 
 Proxy requests to https://api.example.com on port 8000 and log to a file:
 
 ```bash
-npx quickproxy https://api.example.com --port 8000 --log-file proxy.log
+npx tapreq https://api.example.com --port 8000 --log-file proxy.log
 ```
 
 ## Log Format
@@ -75,11 +75,8 @@ MIT
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/yourusername/quickproxy/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/soorajshankar/tapreq/issues).
 
-## Author
-
-Your Name
 
 ## Support
 
