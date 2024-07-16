@@ -1,0 +1,6 @@
+[2024-07-16T11:39:02.902Z] Proxy server is running on port 8088
+[2024-07-16T11:39:02.904Z] Proxying requests to http://localhost:8081
+[2024-07-16T11:39:02.905Z] Logging to file: proxy.log
+[2024-07-16T11:43:35.684Z] Proxy server is running on port 8088
+[2024-07-16T11:43:35.686Z] Proxying requests to http://localhost:8081
+[2024-07-16T11:43:35.686Z] Logging to file: proxy.log

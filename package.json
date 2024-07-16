@@ -1,0 +1,24 @@
+{
+  "name": "quickproxy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "A simple HTTP proxy that logs requests and responses",
+  "keywords": [
+    "proxy",
+    "logging",
+    "cli",
+    "http"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "soorajshankar@gmail.com",
+  "license": "ISC",
+  "bin": {
+    "tapreq": "./proxy.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^3.0.0"
+  }
+}
