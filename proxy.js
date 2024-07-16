@@ -49,12 +49,16 @@ app.use((req, res, next) => {
   const chunks = [];
 
   res.write = function (chunk) {
-    chunks.push(chunk);
+    if (chunk) {
+      chunks.push(Buffer.from(chunk));
+    }
     return oldWrite.apply(res, arguments);
   };
 
   res.end = function (chunk) {
-    if (chunk) chunks.push(chunk);
+    if (chunk) {
+      chunks.push(Buffer.from(chunk));
+    }
     const body = Buffer.concat(chunks).toString('utf8');
     log(`Response: ${res.statusCode}`);
     log(body);
@@ -65,10 +69,40 @@ app.use((req, res, next) => {
 });
 
 // Proxy middleware
-app.use('/', createProxyMiddleware({
+const proxy = createProxyMiddleware({
   target: targetUrl,
   changeOrigin: true,
-}));
+  onError: (err, req, res) => {
+    log(`Proxy Error: ${err.message}`);
+    log(`Error details: ${JSON.stringify(err)}`);
+    log(`Failed request: ${req.method} ${req.url}`);
+    if (err.code) {
+      log(`Error code: ${err.code}`);
+    }
+    if (err.syscall) {
+      log(`System call: ${err.syscall}`);
+    }
+    res.writeHead(502, {
+      'Content-Type': 'text/plain',
+    });
+    res.end(`Proxy Error: ${err.message}`);
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    log(`Proxying request to: ${proxyReq.protocol}//${proxyReq.host}${proxyReq.path}`);
+  },
+  onProxyRes: (proxyRes, req, res) => {
+    log(`Received response from upstream: ${proxyRes.statusCode}`);
+  }
+});
+
+app.use('/', proxy);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  log(`Express Error: ${err.message}`);
+  log(`Error stack: ${err.stack}`);
+  res.status(500).send('Internal Server Error');
+});
 
 app.listen(proxyPort, () => {
   log(`Proxy server is running on port ${proxyPort}`);

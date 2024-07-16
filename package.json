@@ -1,6 +1,6 @@
 {
   "name": "tapreq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "A simple HTTP proxy that logs requests and responses",
   "keywords": [

@@ -4,3 +4,22 @@
 [2024-07-16T11:43:35.684Z] Proxy server is running on port 8088
 [2024-07-16T11:43:35.686Z] Proxying requests to http://localhost:8081
 [2024-07-16T11:43:35.686Z] Logging to file: proxy.log
+[2024-07-16T11:47:38.497Z] Proxy server is running on port 8088
+[2024-07-16T11:47:38.499Z] Proxying requests to http://localhost:8081
+[2024-07-16T11:47:38.499Z] Logging to file: proxy.log
+[2024-07-16T11:52:37.498Z] Proxy server is running on port 8088
+[2024-07-16T11:52:37.500Z] Proxying requests to http://localhost:8081
+[2024-07-16T11:52:37.500Z] Logging to file: proxy.log
+[2024-07-16T11:52:41.321Z] Request: POST /query
+[2024-07-16T11:53:22.419Z] Proxy server is running on port 8088
+[2024-07-16T11:53:22.422Z] Proxying requests to http://localhost:8081
+[2024-07-16T11:53:22.422Z] Logging to file: proxy.log
+[2024-07-16T11:53:30.415Z] Request: POST /query
+[2024-07-16T11:53:30.440Z] Response: 504
+[2024-07-16T11:53:30.440Z] Error occurred while trying to proxy: local.hasura.dev:8088/query
+[2024-07-16T11:54:53.929Z] Proxy server is running on port 8088
+[2024-07-16T11:54:53.931Z] Proxying requests to http://localhost:8081
+[2024-07-16T11:54:53.931Z] Logging to file: proxy.log
+[2024-07-16T11:55:03.832Z] Request: POST /query
+[2024-07-16T11:55:03.863Z] Response: 504
+[2024-07-16T11:55:03.864Z] Error occurred while trying to proxy: local.hasura.dev:8088/query
