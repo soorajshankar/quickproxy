@@ -1,6 +1,6 @@
 {
   "name": "tapreq",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "description": "A simple HTTP proxy that logs requests and responses",
   "keywords": [
@@ -12,6 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/soorajshankar/tapreq",
   "author": "soorajshankar@gmail.com",
   "license": "ISC",
   "bin": {
