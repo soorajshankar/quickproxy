@@ -32,7 +32,7 @@ function getUTCTimestamp() {
 
 // Logging function
 function log(message) {
-  const timestamp = getUTCTimestamp();
+  const timestamp = new Date().toISOString();
   const logMessage = `[${timestamp}] ${message}`;
   console.log(logMessage);
   if (logFile) {
@@ -40,10 +40,20 @@ function log(message) {
   }
 }
 
-// Logging middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use((req, res, next) => {
   log(`Request: ${req.method} ${req.url}`);
   
+  // Log request headers
+  log(`Request Headers: ${JSON.stringify(req.headers, null, 2)}`);
+  
+  // Log request payload
+  if (req.body && Object.keys(req.body).length > 0) {
+    log(`Request Payload: ${JSON.stringify(req.body, null, 2)}`);
+  }
+
   const oldWrite = res.write;
   const oldEnd = res.end;
   const chunks = [];
@@ -61,7 +71,8 @@ app.use((req, res, next) => {
     }
     const body = Buffer.concat(chunks).toString('utf8');
     log(`Response: ${res.statusCode}`);
-    log(body);
+    log(`Response Headers: ${JSON.stringify(res.getHeaders(), null, 2)}`);
+    log(`Response Body: ${body}`);
     oldEnd.apply(res, arguments);
   };
 
